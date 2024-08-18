@@ -1,0 +1,17 @@
+﻿@model IEnumerable<miniProjectShop.Models.Product>
+
+<h2>Product List</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var product in Model)
+        {
+            <li>@product.ProductName - @product.Price</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No products available.</p>
+}

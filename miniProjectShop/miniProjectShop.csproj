@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B252E358-CE36-4A96-91EE-23AA2D7E9EBF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>miniProjectShop</RootNamespace>
+    <AssemblyName>miniProjectShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44356</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CartItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderItem.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductReview.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\aos.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="Content\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="Content\fonts\icomoon\demo.html" />
+    <Content Include="Content\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="Content\fonts\icomoon\Read Me.txt" />
+    <Content Include="Content\fonts\icomoon\style.css" />
+    <Content Include="Content\images\a5dd3e37569f0c0c25b6161995111361.jpg" />
+    <Content Include="Content\images\artistduck.jpg" />
+    <Content Include="Content\images\batmanduck.jpg" />
+    <Content Include="Content\images\blog_1.jpg" />
+    <Content Include="Content\images\children.jpg" />
+    <Content Include="Content\images\cloth_1.jpg" />
+    <Content Include="Content\images\cloth_2.jpg" />
+    <Content Include="Content\images\cloth_3.jpg" />
+    <Content Include="Content\images\codereviewduck.jpg" />
+    <Content Include="Content\images\debuggingduck.jpg" />
+    <Content Include="Content\images\dl.beatsnoop.com-3000-0SVx89ngDJ.jpg" />
+    <Content Include="Content\images\dl.beatsnoop.com-3000-cLeQauvUkl.jpg" />
+    <Content Include="Content\images\doctorduck.jpg" />
+    <Content Include="Content\images\dounatduck.jpg" />
+    <Content Include="Content\images\footer.jpg" />
+    <Content Include="Content\images\grandpaduck.jpg" />
+    <Content Include="Content\images\harrypotterduck.jpg" />
+    <Content Include="Content\images\hero_1.jpg" />
+    <Content Include="Content\images\hero_1.png" />
+    <Content Include="Content\images\istockphoto-1216936581-1024x1024.jpg" />
+    <Content Include="Content\images\loveduck.jpg" />
+    <Content Include="Content\images\men.jpg" />
+    <Content Include="Content\images\mugduck.jpg" />
+    <Content Include="Content\images\person_1.jpg" />
+    <Content Include="Content\images\person_2.jpg" />
+    <Content Include="Content\images\person_3.jpg" />
+    <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\images\rahafpropic.jpeg" />
+    <Content Include="Content\images\shoe.png" />
+    <Content Include="Content\images\shoe_1.jpg" />
+    <Content Include="Content\images\spidermanduck.jpg" />
+    <Content Include="Content\images\strongduck.jpg" />
+    <Content Include="Content\images\supermanduck.jpg" />
+    <Content Include="Content\images\women.jpg" />
+    <Content Include="Content\images\yellowduck.jpg" />
+    <Content Include="Content\js\aos.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\slick.min.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="Content\fonts\icomoon\selection.json" />
+    <Content Include="Content\scss\.DS_Store" />
+    <Content Include="Content\scss\bootstrap\.DS_Store" />
+    <Content Include="Content\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\_card.scss" />
+    <Content Include="Content\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\scss\bootstrap\_close.scss" />
+    <Content Include="Content\scss\bootstrap\_code.scss" />
+    <Content Include="Content\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\_images.scss" />
+    <Content Include="Content\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\_media.scss" />
+    <Content Include="Content\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\scss\bootstrap\_print.scss" />
+    <Content Include="Content\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\scss\bootstrap\_root.scss" />
+    <Content Include="Content\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\scss\bootstrap\_type.scss" />
+    <Content Include="Content\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\scss\_site-base.scss" />
+    <Content Include="Content\scss\_site-blocks.scss" />
+    <Content Include="Content\scss\_site-navbar.scss" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="shoppers-gh-pages\about.html" />
+    <Content Include="shoppers-gh-pages\cart.html" />
+    <Content Include="shoppers-gh-pages\checkout.html" />
+    <Content Include="shoppers-gh-pages\contact.html" />
+    <Content Include="shoppers-gh-pages\css\aos.css" />
+    <Content Include="shoppers-gh-pages\css\bootstrap.min.css" />
+    <Content Include="shoppers-gh-pages\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="shoppers-gh-pages\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="shoppers-gh-pages\css\jquery-ui.css" />
+    <Content Include="shoppers-gh-pages\css\magnific-popup.css" />
+    <Content Include="shoppers-gh-pages\css\owl.carousel.min.css" />
+    <Content Include="shoppers-gh-pages\css\owl.theme.default.min.css" />
+    <Content Include="shoppers-gh-pages\css\style.css" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\demo.html" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\Read Me.txt" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\style.css" />
+    <Content Include="shoppers-gh-pages\images\blog_1.jpg" />
+    <Content Include="shoppers-gh-pages\images\children.jpg" />
+    <Content Include="shoppers-gh-pages\images\cloth_1.jpg" />
+    <Content Include="shoppers-gh-pages\images\cloth_2.jpg" />
+    <Content Include="shoppers-gh-pages\images\cloth_3.jpg" />
+    <Content Include="shoppers-gh-pages\images\hero_1.jpg" />
+    <Content Include="shoppers-gh-pages\images\hero_1.png" />
+    <Content Include="shoppers-gh-pages\images\men.jpg" />
+    <Content Include="shoppers-gh-pages\images\person_1.jpg" />
+    <Content Include="shoppers-gh-pages\images\person_2.jpg" />
+    <Content Include="shoppers-gh-pages\images\person_3.jpg" />
+    <Content Include="shoppers-gh-pages\images\person_4.jpg" />
+    <Content Include="shoppers-gh-pages\images\shoe.png" />
+    <Content Include="shoppers-gh-pages\images\shoe_1.jpg" />
+    <Content Include="shoppers-gh-pages\images\women.jpg" />
+    <Content Include="shoppers-gh-pages\index.html" />
+    <Content Include="shoppers-gh-pages\js\aos.js" />
+    <Content Include="shoppers-gh-pages\js\bootstrap.min.js" />
+    <Content Include="shoppers-gh-pages\js\jquery-3.3.1.min.js" />
+    <Content Include="shoppers-gh-pages\js\jquery-ui.js" />
+    <Content Include="shoppers-gh-pages\js\jquery.magnific-popup.min.js" />
+    <Content Include="shoppers-gh-pages\js\main.js" />
+    <Content Include="shoppers-gh-pages\js\owl.carousel.min.js" />
+    <Content Include="shoppers-gh-pages\js\popper.min.js" />
+    <Content Include="shoppers-gh-pages\js\slick.min.js" />
+    <Content Include="shoppers-gh-pages\shop-single.html" />
+    <Content Include="shoppers-gh-pages\shop.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\about.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\cart.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\checkout.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\contact.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\aos.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\bootstrap.min.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\jquery-ui.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\magnific-popup.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\owl.carousel.min.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\owl.theme.default.min.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\css\style.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\demo-files\demo.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\demo-files\demo.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\demo.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\Read Me.txt" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\style.css" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\102bdc4ee4737b1be48434fcaa662ef7.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\13ca2ae9e735b2d0f6595322c2faab89.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\1668fe322fa80c9dc9e716be08fd4297.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\197fe8d6c8b32fa154f110c129313622.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\1a9ee5c0716418aa652a07032a816865.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\1e600b2324269990d31b7a6a571a4cb6.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\1e866dd12d8802c9ef3410aec56f02a7.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\273dac387f3ee761c76719bf53f8b5b0.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\27bc742e4fca3bb62dd703120c10a930.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\2f47a666d359d2ef8539630eb7bfb1f0.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\3111991edbde33e7807505179f44c413.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\318ff737a6530e3cc7d54a0bc6c37351.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\3df926cc0ea94a1582cfeb8c87bb1de2.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\4115c42ad19371326ead2d13c841ae5f.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\477e213e365f15a6def4a60a82c62db4.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\4fe620c26eefe8a08d4645fdc0069524.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\55eb64ae515f0b1552f3e765e65e902c.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\56876c8c7f5586ee459127bd65bf647c.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\5a0bb48ef0730e394bfc1e60e8467b80.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\5b24b5ecdbcc71acf9f0fe62340f12a4.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\6d7de5289b3dd31cf2e1bbaae5dd6e51 %281%29.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\6d7de5289b3dd31cf2e1bbaae5dd6e51.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\71f66bd62093be7c8f660bd61f3ad12d.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\76cfde31f90376b76a6b9b1797edfe83.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\7bd9eb9dd0270d4a1c98af65285b5bb6.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\7ea760b6cb242d24c1242c983eaa9083.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\814ea3b63e441d2ca59e7cc184bfec91.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\8b196150a0d72a2e2cd546529b9d6083.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\93a98f441cfbbfa36948df7932ea0ed8.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\964cbc62de917ae7650be2ee8c06a0f0.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\9cbf6bac565c1a0cda5158c4c461bdd8.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\a41ad9198f4d0afea81f6d9877cd389f.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\aadb95f1e014d6742d2acca2f0dab93e.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\ae70a336b9fd1e69124dd8b48213cc6a.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\aeead9eda17d3eafbb2ecd19c82839e4.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\b006c8aef808a03cc70255b4f09689d1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\b7bc6c2005d4c96159ff0dc432e1e589.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\be3aabb5bbbc8ea427d0d371215de8cb.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\blog_1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\ce51ca5001acbda057e2860413d37852.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\children.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\cloth_1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\cloth_2.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\cloth_3.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\e088c9a4dbfa5855ed6936ed93737875.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\e4840bc518ed9013b2495dd937b7dc55.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\e766da6cf3552a8b0bf5c389016b5cf2.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\e87c441046e9af2056274b4ff07029ac.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\f0c8e11d67ec6868c2883df801af2a17.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\f850052038aa46ca1d49bd7923dba73f.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\hero_1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\hero_1.png" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\men.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\person_1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\person_2.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\person_3.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\person_4.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\shoe.png" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\shoe_1.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\women.jpg" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\index.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\aos.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\bootstrap.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\jquery-3.3.1.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\jquery-ui.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\jquery.magnific-popup.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\main.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\owl.carousel.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\popper.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\js\slick.min.js" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\shop-single.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\shop.html" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\thankyou.html" />
+    <Content Include="shoppers-gh-pages\thankyou.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="shoppers-gh-pages\.DS_Store" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="shoppers-gh-pages\fonts\icomoon\selection.json" />
+    <Content Include="shoppers-gh-pages\prepros-6.config" />
+    <Content Include="shoppers-gh-pages\scss\.DS_Store" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\.DS_Store" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\bootstrap.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_alert.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_badge.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_button-group.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_buttons.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_card.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_carousel.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_close.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_code.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_dropdown.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_forms.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_functions.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_grid.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_images.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_input-group.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_list-group.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_media.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_mixins.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_modal.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_nav.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_navbar.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_pagination.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_popover.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_print.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_progress.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_reboot.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_root.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_tables.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_tooltip.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_transitions.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_type.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_utilities.scss" />
+    <Content Include="shoppers-gh-pages\scss\bootstrap\_variables.scss" />
+    <Content Include="shoppers-gh-pages\scss\style.scss" />
+    <Content Include="shoppers-gh-pages\scss\_site-base.scss" />
+    <Content Include="shoppers-gh-pages\scss\_site-blocks.scss" />
+    <Content Include="shoppers-gh-pages\scss\_site-navbar.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\.DS_Store" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\fonts\icomoon\selection.json" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\1715733989453f7f80effdabbe9fe05357f653a720_thumbnail_900x.webp" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\images\Music - Shortcut.lnk" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\prepros-6.config" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\.DS_Store" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\.DS_Store" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\bootstrap.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_alert.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_badge.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_button-group.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_buttons.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_card.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_carousel.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_close.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_code.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_dropdown.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_forms.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_functions.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_grid.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_images.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_input-group.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_list-group.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_media.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_mixins.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_modal.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_nav.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_navbar.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_pagination.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_popover.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_print.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_progress.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_reboot.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_root.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_tables.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_tooltip.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_transitions.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_type.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_utilities.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\bootstrap\_variables.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\style.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\_site-base.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\_site-blocks.scss" />
+    <Content Include="shoppers-gh-pages\shoppers-gh-pages\scss\_site-navbar.scss" />
+    <Content Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\register.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Account\login.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Account\Cart.cshtml" />
+    <Content Include="Views\Account\Checkout.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Account\AddProduct.cshtml" />
+    <Content Include="Views\Account\ProductList.cshtml" />
+    <Content Include="Views\Home\Profilepage.cshtml" />
+    <Content Include="Views\Account\Profilepage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64076</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44356/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

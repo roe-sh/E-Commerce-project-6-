@@ -1,0 +1,269 @@
+﻿@{
+    ViewBag.Title = "Programmer's Duck Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Yellow-Themed Styles */
+    .site-blocks-cover {
+        background-color: #ffcc0000;; /* Light yellow background */
+        color: #333; /* Dark text for contrast */
+        padding: 100px 0;
+    }
+
+        .site-blocks-cover h1 {
+            color: #ffcc00; /* Yellow title color */
+            font-weight: bold;
+        }
+
+    .intro-text p {
+        color: #666; /* Slightly darker text for readability */
+    }
+
+    .btn-primary {
+        background-color: #ffcc00; /* Yellow button */
+        border-color: #ffcc00;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #ffb400; /* Darker yellow on hover */
+            transform: translateY(-3px);
+        }
+
+    .site-blocks-1 .icon {
+        color: #ffcc00; /* Yellow icons */
+        font-size: 3rem;
+    }
+
+    .site-blocks-1 h2 {
+        color: #ffcc00; /* Yellow headers */
+    }
+
+    .block-2-item .text {
+        background-color: #ffcc0000;
+         /* Soft yellow background */
+        color: #333; /* Darker text */
+        padding: 20px;
+        text-align: center;
+    }
+
+        .block-2-item .text h3 {
+            color: #ffcc00; /* Yellow text */
+        }
+
+    .block-3 h2 {
+        color: #ffcc00; /* Yellow title */
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .block-4-text h3 a {
+        color: #ffcc00; /* Yellow product names */
+    }
+
+    .block-4-text p {
+        color: #666; /* Slightly darker text for readability */
+    }
+
+    .block-8 h2 {
+        color: #ffcc00; /* Yellow sale title */
+    }
+
+    .block-8 a.btn-primary {
+        background-color: #ffcc00; /* Yellow button */
+        border-color: #ffcc00;
+    }
+
+        .block-8 a.btn-primary:hover {
+            background-color: #ffb400; /* Darker yellow on hover */
+        }
+</style>
+
+<div class="site-blocks-cover" style="background-image: url('@Url.Content("/Content/images/dl.beatsnoop.com-3000-cLeQauvUkl.jpg")');" data-aos="fade">
+    <div class="container">
+        <div class="row align-items-start align-items-md-center justify-content-end">
+            <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
+                <h1 class="mb-2">Find Your Perfect Duck</h1>
+                <div class="intro-text text-center text-md-left">
+                    <p class="mb-4">Need a rubber duck to talk through your code issues? We've got you covered. Browse our collection and find the perfect companion for your coding sessions.</p>
+                    <p>
+                        <a href="@Url.Action("Shop", "Home")" class="btn btn-sm btn-primary">Shop Now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section site-section-sm site-blocks-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-truck"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Free Shipping</h2>
+                    <p>We offer free shipping on all duck orders, because every programmer deserves their duck, no matter where they are.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-refresh2"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">Easy Returns</h2>
+                    <p>Not satisfied with your duck? No problem! We offer easy returns, so you can find the perfect coding companion.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 d-lg-flex mb-4 mb-lg-0 pl-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon mr-4 align-self-start">
+                    <span class="icon-help"></span>
+                </div>
+                <div class="text">
+                    <h2 class="text-uppercase">24/7 Support</h2>
+                    <p>Need help? Our support team is available 24/7 to assist you with your duck-related inquiries.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section site-blocks-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="@Url.Content("~/Content/images/yellowduck.jpg")" alt="Women's Collection" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <span class="text-uppercase">Collections</span>
+                        <h3>Debugging Ducks</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="@Url.Content("~/Content/images/spidermanduck.jpg")" alt="Children's Collection" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <span class="text-uppercase">Collections</span>
+                        <h3>SuperPower Ducks</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                <a class="block-2-item" href="#">
+                    <figure class="image">
+                        <img src="@Url.Content("~/Content/images/a5dd3e37569f0c0c25b6161995111361.jpg")" alt="Men's Collection" class="img-fluid">
+                    </figure>
+                    <div class="text">
+                        <span class="text-uppercase">Collections</span>
+                        <h3>Duck and More</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section block-3 site-blocks-2 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Featured Ducks</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="nonloop-block-3 owl-carousel">
+                    <div class="item">
+                        <div class="block-4 text-center">
+                            <figure class="block-4-image">
+                                <img src="@Url.Content("~/Content/images/codereviewduck.jpg")" alt="Code Review Duck" class="img-fluid">
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="#">Code Review Duck</a></h3>
+                                <p class="mb-0">The perfect duck for pair programming sessions.</p>
+                                <p class="text-primary font-weight-bold">$25</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="block-4 text-center">
+                            <figure class="block-4-image">
+                                <img src="@Url.Content("~/Content/images/debuggingduck.jpg")" alt="Debugging Duck" class="img-fluid">
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="#">Debugging Duck</a></h3>
+                                <p class="mb-0">Helps you talk through those tricky bugs.</p>
+                                <p class="text-primary font-weight-bold">$20</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="block-4 text-center">
+                            <figure class="block-4-image">
+                                <img src="@Url.Content("~/Content/images/mugduck.jpg")" alt="Refactoring Duck" class="img-fluid">
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="#">Duck mug</a></h3>
+                                <p class="mb-0">For when your code needs a bit of cleanup.</p>
+                                <p class="text-primary font-weight-bold">$30</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="block-4 text-center">
+                            <figure class="block-4-image">
+                                <img src="@Url.Content("~/Content/images/harrypotterduck.jpg")" alt="Build Success Duck" class="img-fluid">
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="#">Build Success Duck</a></h3>
+                                <p class="mb-0">Celebrate every successful build.</p>
+                                <p class="text-primary font-weight-bold">$35</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="block-4 text-center">
+                            <figure class="block-4-image">
+                                <img src="@Url.Content("~/Content/images/yellowduck.jpg")" alt="All-Purpose Duck" class="img-fluid">
+                            </figure>
+                            <div class="block-4-text p-4">
+                                <h3><a href="#">All-Purpose Duck</a></h3>
+                                <p class="mb-0">The versatile duck for any coding situation.</p>
+                                <p class="text-primary font-weight-bold">$40</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section block-8">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Big Duck Sale!</h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-7 mb-5">
+                <a href="#"><img src="@Url.Content("~/Content/images/dl.beatsnoop.com-3000-0SVx89ngDJ.jpg")" alt="Duck Sale Image" class="img-fluid rounded"></a>
+            </div>
+            <div class="col-md-12 col-lg-5 text-center pl-md-5">
+                <h2><a href="@Url.Action("Shop", "Home")">50% Off on All Ducks</a></h2>
+                <p class="post-meta mb-4">By <a href="#">Duck Master</a> <span class="block-8-sep">&bullet;</span> September 3, 2024</p>
+                <p>Grab your favorite coding duck now at half the price! Limited time offer, don't miss out!</p>
+                <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
+            </div>
+        </div>
+    </div>
+</div>

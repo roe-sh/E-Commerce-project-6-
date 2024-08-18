@@ -1,0 +1,10 @@
+﻿@model IEnumerable<miniProjectShop.Models.Product>
+
+<h2>Product List</h2>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.ProductName - @product.Price</li>
+    }
+</ul>

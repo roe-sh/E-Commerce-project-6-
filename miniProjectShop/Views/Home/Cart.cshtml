@@ -1,0 +1,226 @@
+﻿@model IEnumerable<miniProjectShop.Models.CartItem>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .site-blocks-table {
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .product-thumbnail img {
+        max-width: 100px;
+        border-radius: 8px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .product-thumbnail img:hover {
+            transform: scale(1.1);
+        }
+
+    .product-name h2 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .input-group-prepend .btn,
+    .input-group-append .btn {
+        border-radius: 0;
+    }
+
+    .input-group .form-control {
+        border-radius: 0;
+    }
+
+    .site-blocks-table table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    .site-blocks-table th,
+    .site-blocks-table td {
+        padding: 12px;
+        text-align: center;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .btn-primary.btn-sm {
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    .btn-outline-primary.btn-sm.btn-block {
+        border-radius: 5px;
+    }
+
+    .cart-totals {
+        border-top: 2px solid #000;
+        padding-top: 20px;
+    }
+
+        .cart-totals h4 {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+    .text-black {
+        color: #000 !important;
+    }
+
+    .proceed-btn {
+        background-color: #28a745;
+        border-color: #28a745;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .proceed-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+    .empty-cart-message {
+        text-align: center;
+        padding: 40px;
+        font-size: 20px;
+        color: #777;
+    }
+</style>
+
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mb-0">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">Cart</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <form class="col-md-12" method="post">
+                <div class="site-blocks-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Any())
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <img src="@Url.Content("~/images/" + item.Product.Image)" alt="@item.Product.ProductName" class="img-fluid">
+                                        </td>
+                                        <td class="product-name">
+                                            <h2 class="h5 text-black">@item.Product.ProductName</h2>
+                                        </td>
+                                        <td>@item.Product.Price.ToString("C")</td>
+                                        <td>
+                                            <div class="input-group mb-3" style="max-width: 120px;">
+                                                <div class="input-group-prepend">
+                                                    <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                </div>
+                                                <input type="text" class="form-control text-center" value="@item.Quantity" placeholder="" aria-label="Quantity" aria-describedby="button-addon1">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>@(item.Product.Price * item.Quantity)</td>
+                                        <td>
+                                            <a href="@Url.Action("RemoveFromCart", "Home", new { id = item.CartItemID })" class="btn btn-primary btn-sm">X</a>
+                                        </td>
+
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="6" class="empty-cart-message">Your cart is empty.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <a href="@Url.Action("Shop", "Home")" class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5">
+                <div class="row justify-content-end">
+                    <div class="col-md-7 cart-totals">
+                        <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-5">
+                                <h4 class="text-black text-uppercase">Cart Totals</h4>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <span class="text-black">Subtotal</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <strong class="text-black">@Model.Sum(x => x.Product.Price * x.Quantity).ToString("C")</strong>
+                            </div>
+                        </div>
+                        <div class="row mb-5">
+                            <div class="col-md-6">
+                                <span class="text-black">Total</span>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <strong class="text-black">@Model.Sum(x => x.Product.Price * x.Quantity).ToString("C")</strong>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn proceed-btn btn-lg py-3 btn-block" onclick="window.location.href='@Url.Action("Checkout", "Cart")'">Proceed To Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

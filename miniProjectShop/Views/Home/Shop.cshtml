@@ -1,0 +1,225 @@
+﻿@model IEnumerable<miniProjectShop.Models.Product>
+
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* General Styles */
+    .site-section {
+        background-color: #fffbea; /* Light yellow background */
+        padding: 40px 0;
+        text-align: center; /* Center all text within the section */
+    }
+
+    .block-4 {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ffcc00; /* Yellow border */
+        display: inline-block; /* Align product blocks in center */
+        margin: 0 auto;
+        text-align: left; /* Keep the text alignment inside the product block */
+    }
+
+        .block-4:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3); /* Yellow shadow */
+        }
+
+    .block-4-image img {
+        border-radius: 8px 8px 0 0;
+        transition: transform 0.3s ease;
+        width: 100%; /* Ensure image takes full width */
+    }
+
+        .block-4-image img:hover {
+            transform: scale(1.1);
+        }
+
+    .block-4-text {
+        background-color: #fff8e1; /* Soft yellow background */
+        padding: 20px;
+        border-radius: 0 0 8px 8px;
+        text-align: center; /* Center text within the product block */
+    }
+
+        .block-4-text h3 a {
+            color: #ffcc00; /* Yellow text */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .block-4-text h3 a:hover {
+                color: #ffb400; /* Darker yellow on hover */
+            }
+
+        .block-4-text p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .block-4-text .text-primary {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffcc00; /* Yellow price text */
+        }
+
+    .btn-primary {
+        background-color: #ffcc00; /* Yellow button */
+        border-color: #ffcc00;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 10px;
+    }
+
+        .btn-primary:hover {
+            background-color: #ffb400; /* Darker yellow on hover */
+            transform: translateY(-3px);
+        }
+
+    /* Dropdown Styles */
+    .dropdown-menu {
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+        transition: background-color 0.3s ease;
+        color: #ffcc00; /* Yellow text in dropdown */
+    }
+
+        .dropdown-item:hover {
+            background-color: #fff8e1; /* Light yellow on hover */
+        }
+
+    /* Pagination */
+    .site-block-27 ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+        .site-block-27 ul li {
+            margin: 0 5px;
+        }
+
+            .site-block-27 ul li a {
+                display: block;
+                padding: 10px 15px;
+                background-color: #fff8e1; /* Light yellow background */
+                border: 1px solid #ffcc00; /* Yellow border */
+                color: #ffcc00; /* Yellow text */
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+                .site-block-27 ul li a:hover {
+                    background-color: #ffcc00; /* Yellow background on hover */
+                    color: #fff; /* White text on hover */
+                }
+
+            .site-block-27 ul li.active span {
+                display: block;
+                padding: 10px 15px;
+                background-color: #ffcc00; /* Yellow active background */
+                color: #ffffff; /* White text for active */
+                border-radius: 5px;
+            }
+</style>
+
+<div class="bg-light py-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 mb-0 text-center">
+                <a href="@Url.Action("Index", "Home")">Home</a>
+                <span class="mx-2 mb-0">/</span>
+                <strong class="text-black">Shop</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-9 order-2 mx-auto">
+                <div class="row">
+                    <div class="col-md-12 mb-5 text-center">
+                        <div class="float-md-left mb-4">
+                            <h2 class="text-black h5">Shop All Programmers Ducks</h2>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="dropdown mr-1 ml-md-auto">
+                                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Latest
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                    <a class="dropdown-item" href="#">Debugging Ducks</a>
+                                    <a class="dropdown-item" href="#">Pair Programming Ducks</a>
+                                    <a class="dropdown-item" href="#">Rubber Ducks</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model != null && Model.Any())
+                {
+                    <div class="row justify-content-center mb-5">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                                <div class="block-4 text-center border mx-auto">
+                                    <figure class="block-4-image">
+                                        <a href="@Url.Action("Details", "Home", new { id = item.ProductID })">
+                                            <img src="@Url.Content("~/images/" + item.Image)" alt="Image placeholder" class="img-fluid">
+                                        </a>
+                                    </figure>
+                                    <div class="block-4-text p-4">
+                                        <h3><a href="@Url.Action("Details", "Home", new { id = item.ProductID })">@item.ProductName</a></h3>
+                                        <p class="mb-0">@item.Description</p>
+                                        <p class="text-primary font-weight-bold">$@item.Price.ToString("F2")</p>
+
+                                        <form action="@Url.Action("AddToCart", "Home")" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="productId" value="@item.ProductID" />
+                                            <input type="number" name="quantity" class="form-control text-center" value="1" min="1" max="10" style="margin-bottom: 10px;" />
+
+                                            <!-- Add to Cart Button -->
+                                            <button type="submit" class="btn btn-primary btn-sm">Add to Cart</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                else
+                {
+                    <p>No products available.</p>
+                }
+
+                <div class="row" data-aos="fade-up">
+                    <div class="col-md-12 text-center">
+                        <div class="site-block-27">
+                            <ul>
+                                <li><a href="#">&lt;</a></li>
+                                <li class="active"><span>1</span></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&gt;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
